@@ -10,10 +10,6 @@ class fluentd::repo::apt (
     'id'     => 'BEE682289B2217F45AF4CC3F901F9177AB97ACBE',
     'source' => 'http://packages.treasuredata.com/GPG-KEY-td-agent'
   },
-  $include      = {
-    'src' => false,
-    'deb' => true,
-  },
 ) {
 
   include '::apt'
@@ -25,6 +21,5 @@ class fluentd::repo::apt (
     architecture => $architecture,
     repos        => $repos,
     key          => $key,
-    include      => $include,
   }
 }
