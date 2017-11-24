@@ -15,11 +15,11 @@ class fluentd::repo::apt (
   include '::apt'
 
   apt::source { 'treasure-data':
-    ensure       => $ensure,
-    location     => $location,
-    release      => $release,
-    architecture => $architecture,
-    repos        => $repos,
-    key          => $key,
+    ensure     => 'present',
+    location   => downcase("http://packages.treasuredata.com/2/${::lsbdistid}/${::lsbdistcodename}"),
+    release    => $::lsbdistcodename,
+    repos      => 'contrib',
+    key        => 'BEE682289B2217F45AF4CC3F901F9177AB97ACBE',
+    key_source => 'http://packages.treasuredata.com/GPG-KEY-td-agent',
   }
 }
